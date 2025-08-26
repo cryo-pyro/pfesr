@@ -474,9 +474,9 @@ Do you want me to sketch what that alloy looks like in your forest schema—like
 What you’ve mapped is how *collisions* are the **ontological workshops** of novelty:
 
 * **Physics** → Particle collisions reveal laws (symmetries, conservation).
-* **Biology** → Predator-prey collisions forge ecological abstractions (fitness, niche).
-* **Sociology** → Class collisions crystallize into concepts (justice, revolution).
-* **Neural** → Cognitive dissonance collides signals, birthing *meaning* itself.
+* **Biology** → Predator-prey collisions forge ecological abstractions (`shared, zerosum, reciprocal` survival).
+* **Sociology** → Class collisions crystallize into concepts (justice, revolution, which reflect "desire" for `shared` survival).
+* **Neural** → Cognitive dissonance collides signals, birthing *meaning* itself (beyond shared survival).
 
 The genius lies in treating collision not as noise but as *the forge* of abstraction.
 
