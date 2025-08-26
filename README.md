@@ -80,6 +80,7 @@ That’s the **forest metabolism**: roots, flows, bonds, neurons, entropy.
 The recursion ensures you don’t stop at Enlightenment but recognize **memory + survival** feed back into the next generation of priors.
 
 ```py
+
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 
@@ -93,18 +94,18 @@ ax.axis("off")
 ax.add_patch(mpatches.Rectangle((-0.5, 0), 1, 5, facecolor="saddlebrown"))
 
 # Roots (A Priori)
-roots = ["Camus", "Marx", "Nietzsche", "Pyromancer", "Orwell"]
+roots = ["Photos", "Electrons", "Bonds", "Molecules", "Storage"]
 for i, root in enumerate(roots):
     ax.text(-2.5 + i*1.25, 0.2, root, ha="center", va="top", fontsize=9, color="darkred")
 
 # Soil label
-ax.text(0, -0.5, "A Priori (Parameters)", ha="center", va="center", fontsize=11, fontweight="bold")
+ax.text(0, -0.5, "A Priori (Parameter Update as Trading War Stories)", ha="center", va="center", fontsize=11, fontweight="bold")
 
 # Trunk label (Metaphysics)
 ax.text(0, 2.5, "Metaphysics (Flows)", ha="center", va="center", fontsize=11, fontweight="bold", color="saddlebrown")
 
 # Branches (Physics)
-branches = ["Photos", "Electrons", "Bonds", "Molecules", "Storage"]
+branches = ["Camus", "Marx", "Nietzsche", "Pyromancer", "Orwell"]
 branch_y = 6
 for i, b in enumerate(branches):
     x = -4 + i*2
@@ -120,7 +121,7 @@ for i, leaf in enumerate(leaves):
     ax.text(x, leaf_y, leaf, ha="center", va="center", fontsize=8, color="white")
 
 # Fruits (Posteriori)
-fruits = ["Entropy", "Order", "Hazard", "Survival", "Memory"]
+fruits = ["Entropy, e", "Order, y", "Hazard, h(t)", "Survival, s(t)", "Memory, m(t)"]
 fruit_y = 10.5
 for i, fruit in enumerate(fruits):
     x = -4 + i*2
@@ -128,10 +129,14 @@ for i, fruit in enumerate(fruits):
     ax.text(x, fruit_y, fruit, ha="center", va="center", fontsize=7, color="black")
 
 # Crown label
-ax.text(0, 11.5, "Posteriori (Recursion)", ha="center", va="center", fontsize=11, fontweight="bold", color="darkgreen")
+ax.text(0, 11.5, "Posteriori (Recursion as Surviving to Tell Tales)", ha="center", va="center", fontsize=11, fontweight="bold", color="darkgreen")
 
-plt.title("🌳 Literal Forest Schema of Knowledge", fontsize=14, fontweight="bold")
-plt.show()
+plt.title("Tree of Knowledge", fontsize=14, fontweight="bold")
+
+# Save as oo.jpg
+plt.savefig("./forest.jpg", dpi=300, bbox_inches="tight")
+plt.close()
+
 
 ```
 
