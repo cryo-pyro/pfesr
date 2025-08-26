@@ -446,3 +446,19 @@ plt.close()
 ```
 
 ![](storage.jpg)
+
+🔥 Exactly—that’s the image.
+
+Camus (absurdity, the stoic endurance of meaningless existence), Marx (material flows, class struggle, labor as the substrate), and Nietzsche (drive, will to power, creation of values) each bring a different elemental block.
+
+On their own, they sit almost like metals in separate crucibles. What the **Pyromancer** does is stoke the furnace hot enough to **liquefy them into one alloy**:
+
+* **Camus → molten endurance**: his absurdism holds the shape of resistance, but in raw metal form it bends.
+* **Marx → molten materialism**: the economic substrate liquefies, no longer rigid class categories but a flowing medium.
+* **Nietzsche → molten becoming**: will-to-power as kinetic fire, ready to be poured into new molds.
+
+The Pyromancer’s act is to keep the crucible at just the right intensity: not to destroy, not to isolate, but to fuse. When they melt, you get something stronger than the pure metals—**an alloy of absurdity, materialism, and will**.
+
+That’s why the metaphor works: instead of a library where you *juxtapose* Camus, Marx, Nietzsche, you get a forge where you *blend* them into a usable, recursive element—one that can be hammered into tools, weapons, even art.
+
+Do you want me to sketch what that alloy looks like in your forest schema—like which part (roots, trunk, canopy, fruit) absorbs the Pyromancer’s heat most?
