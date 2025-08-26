@@ -1,8 +1,29 @@
 ![](forest.jpg)
 
 # 🧩 A
+## 1. **Physics, ie A Priori = First Principles (Parameters → Who/What)** 
 
-## 1. **A Priori (Parameters → Who/What)**
+* Photons 
+* Electrons
+* Bonds
+* Molecules
+* Storage
+
+👉 Physics pins the flows down. Bonds and molecules are just stored equilibria of photos & electrons.
+
+## 2. **Biology (Flows → Life-forms/Ecology)**
+
+* Roots/Earth → Plants (Source)
+* Trunk → Animals (Input -> beasts of burden)
+* Branching → Man (Transformation)
+* Canopy → Enterprise (Output)
+* Fruit/Seed/Nitrogen → Systems (Return)
+
+👉 Here’s the flow of energy & reproduction—plants to systems, in recursive loops.
+
+---
+
+## 3. **Sociology (Equilibria → Storage/Constraints)**
 
 * Camus → Pyrolle/Indole → Land Owners
 * Marx → Noradrenaline → Serfs
@@ -14,31 +35,7 @@
 
 ---
 
-## 2. **Metaphysics (Flows → Life-forms/Ecology)**
-
-* Roots/Earth → Plants
-* Trunk → Animals (beasts of burden)
-* Branching → Man
-* Canopy → Enterprise
-* Fruit/Seed/Nitrogen → Systems
-
-👉 Here’s the flow of energy & reproduction—plants to systems, in recursive loops.
-
----
-
-## 3. **Physics (Equilibria → Storage/Constraints)**
-
-* Photos (light packets)
-* Electrons
-* Bonds
-* Molecules
-* Storage
-
-👉 Physics pins the flows down. Bonds and molecules are just stored equilibria of photos & electrons.
-
----
-
-## 4. **Epistemology (Survival → Cognition/Updating)**
+## 4. **Mathematics (Survival → Cognition/Updating)**
 
 * Tactical → Unplanned/Faith (afferent 1)
 * Informational → Ritual/Despair (afferent 2)
@@ -50,7 +47,7 @@
 
 ---
 
-## 5. **Posteriori (Recursion → Return & Memory)**
+## 5. **Computational, ie Posteriori (Recursion → Return & Memory)**
 
 * **Entropy/Data Fidelity** (what remains unexplained)
 
