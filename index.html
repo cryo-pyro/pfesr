@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collision → Emergence → Recursion</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: radial-gradient(circle at center, #0a0a0a, #1a1a1a);
+            color: #ffffff;
+            font-family: 'Courier New', monospace;
+            overflow: hidden;
+            height: 100vh;
+        }
+        
+        .container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .layer {
+            position: absolute;
+            width: 800px;
+            height: 120px;
+            border: 2px solid;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            backdrop-filter: blur(5px);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .layer:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px currentColor;
+        }
+        
+        .physics {
+            bottom: 50px;
+            border-color: #ff4444;
+            background: linear-gradient(90deg, rgba(255,68,68,0.1), rgba(255,68,68,0.2));
+        }
+        
+        .biology {
+            bottom: 200px;
+            border-color: #44ff44;
+            background: linear-gradient(90deg, rgba(68,255,68,0.1), rgba(68,255,68,0.2));
+        }
+        
+        .sociology {
+            bottom: 350px;
+            border-color: #4444ff;
+            background: linear-gradient(90deg, rgba(68,68,255,0.1), rgba(68,68,255,0.2));
+        }
+        
+        .metaphysics {
+            bottom: 500px;
+            border-color: #ffff44;
+            background: linear-gradient(90deg, rgba(255,255,68,0.1), rgba(255,255,68,0.2));
+        }
+        
+        .computation {
+            bottom: 650px;
+            border-color: #ff44ff;
+            background: linear-gradient(90deg, rgba(255,68,255,0.1), rgba(255,68,255,0.2));
+        }
+        
+        .element {
+            padding: 8px 12px;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.1);
+            font-size: 11px;
+            text-align: center;
+            line-height: 1.2;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .element:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.1);
+        }
+        
+        .collision {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #ffffff, #ffaa00);
+            animation: pulse 2s infinite;
+        }
+        
+        .emergence {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #00ffff, #0088ff);
+            animation: emerge 3s infinite;
+        }
+        
+        .recursion-arrow {
+            position: absolute;
+            width: 4px;
+            background: linear-gradient(to bottom, #ff44ff, #ff4444);
+            animation: flow 4s infinite;
+        }
+        
+        .central-core {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #000000, #333333);
+            border: 3px solid #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            animation: coreGlow 5s infinite;
+        }
+        
+        .title {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            background: linear-gradient(90deg, #ff4444, #44ff44, #4444ff, #ffff44, #ff44ff);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbow 3s ease-in-out infinite;
+        }
+        
+        .controls {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            padding: 8px 16px;
+            border: 2px solid #ffffff;
+            background: rgba(0,0,0,0.7);
+            color: #ffffff;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: rgba(255,255,255,0.2);
+            box-shadow: 0 0 15px #ffffff;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.7; }
+        }
+        
+        @keyframes emerge {
+            0% { transform: scale(0) rotate(0deg); opacity: 0; }
+            50% { transform: scale(1.2) rotate(180deg); opacity: 1; }
+            100% { transform: scale(1) rotate(360deg); opacity: 0.8; }
+        }
+        
+        @keyframes flow {
+            0% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        
+        @keyframes coreGlow {
+            0%, 100% { box-shadow: 0 0 20px #ffffff; }
+            50% { box-shadow: 0 0 40px #00ffff, 0 0 60px #00ffff; }
+        }
+        
+        @keyframes rainbow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .layer-label {
+            position: absolute;
+            left: -120px;
+            font-size: 14px;
+            font-weight: bold;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">COLLISION → EMERGENCE → RECURSION<br/>The Forge of Abstraction</h1>
+        
+        <div class="central-core">
+            e = Y - ŷ<br/>
+            <small>Unattainable<br/>Zero</small>
+        </div>
+        
+        <!-- Physics Layer -->
+        <div class="layer physics" data-layer="physics">
+            <div class="layer-label">PHYSICS</div>
+            <div class="element">Photons</div>
+            <div class="element">Electrons</div>
+            <div class="element">Bonds</div>
+            <div class="element">Molecules</div>
+            <div class="element">Storage</div>
+        </div>
+        
+        <!-- Biology Layer -->
+        <div class="layer biology" data-layer="biology">
+            <div class="layer-label">BIOLOGY</div>
+            <div class="element">Roots/Earth<br/>Plants</div>
+            <div class="element">Trunk<br/>Animals</div>
+            <div class="element">Branching<br/>Man</div>
+            <div class="element">Canopy<br/>Enterprise</div>
+            <div class="element">Fruit/Seed<br/>Systems</div>
+        </div>
+        
+        <!-- Sociology Layer -->
+        <div class="layer sociology" data-layer="sociology">
+            <div class="layer-label">SOCIOLOGY</div>
+            <div class="element">Camus<br/>Plant/Absurd</div>
+            <div class="element">Marx<br/>Animal/Labor</div>
+            <div class="element">Nietzsche<br/>Man→Über</div>
+            <div class="element">Pyromancer<br/>Enterprise</div>
+            <div class="element">Orwell<br/>System</div>
+        </div>
+        
+        <!-- Metaphysics Layer -->
+        <div class="layer metaphysics" data-layer="metaphysics">
+            <div class="layer-label">EMERGENCE</div>
+            <div class="element">Tactical<br/>Faith</div>
+            <div class="element">Informational<br/>Despair</div>
+            <div class="element">Strategic<br/>Ideology</div>
+            <div class="element">Operational<br/>Soma+Axon</div>
+            <div class="element">Existential<br/>Efferents</div>
+        </div>
+        
+        <!-- Computation Layer -->
+        <div class="layer computation" data-layer="computation">
+            <div class="layer-label">RECURSION</div>
+            <div class="element">Random<br/>e</div>
+            <div class="element">Order<br/>y</div>
+            <div class="element">Hazard<br/>h(t)</div>
+            <div class="element">Survival<br/>S(t)</div>
+            <div class="element">Memory<br/>m(t)</div>
+        </div>
+        
+        <div class="controls">
+            <button class="btn" onclick="startCollisions()">IGNITE</button>
+            <button class="btn" onclick="stopCollisions()">PAUSE</button>
+            <button class="btn" onclick="resetSystem()">RESET</button>
+        </div>
+    </div>
+
+    <script>
+        let collisionInterval;
+        let emergenceInterval;
+        let recursionInterval;
+        let isActive = false;
+        
+        const layers = document.querySelectorAll('.layer');
+        const container = document.querySelector('.container');
+        
+        function createCollision(layer) {
+            const elements = layer.querySelectorAll('.element');
+            const rect = layer.getBoundingClientRect();
+            
+            // Create collision between two random elements
+            const el1 = elements[Math.floor(Math.random() * elements.length)];
+            const el2 = elements[Math.floor(Math.random() * elements.length)];
+            
+            if (el1 !== el2) {
+                const collision = document.createElement('div');
+                collision.className = 'collision';
+                collision.style.left = (el1.offsetLeft + el2.offsetLeft) / 2 + 'px';
+                collision.style.top = (rect.top + 50) + 'px';
+                container.appendChild(collision);
+                
+                // Remove after animation
+                setTimeout(() => {
+                    if (collision.parentNode) {
+                        collision.parentNode.removeChild(collision);
+                    }
+                }, 2000);
+                
+                // Create emergence
+                setTimeout(() => createEmergence(layer), 1000);
+            }
+        }
+        
+        function createEmergence(layer) {
+            const emergence = document.createElement('div');
+            emergence.className = 'emergence';
+            const rect = layer.getBoundingClientRect();
+            emergence.style.left = (rect.left + Math.random() * rect.width) + 'px';
+            emergence.style.top = (rect.top - 50) + 'px';
+            container.appendChild(emergence);
+            
+            // Remove after animation
+            setTimeout(() => {
+                if (emergence.parentNode) {
+                    emergence.parentNode.removeChild(emergence);
+                }
+            }, 3000);
+        }
+        
+        function createRecursionFlow() {
+            const arrow = document.createElement('div');
+            arrow.className = 'recursion-arrow';
+            arrow.style.left = '50%';
+            arrow.style.top = '100px';
+            arrow.style.height = '600px';
+            container.appendChild(arrow);
+            
+            setTimeout(() => {
+                if (arrow.parentNode) {
+                    arrow.parentNode.removeChild(arrow);
+                }
+            }, 4000);
+        }
+        
+        function startCollisions() {
+            if (isActive) return;
+            isActive = true;
+            
+            collisionInterval = setInterval(() => {
+                layers.forEach(layer => {
+                    if (Math.random() < 0.7) {
+                        createCollision(layer);
+                    }
+                });
+            }, 1500);
+            
+            recursionInterval = setInterval(createRecursionFlow, 5000);
+        }
+        
+        function stopCollisions() {
+            isActive = false;
+            clearInterval(collisionInterval);
+            clearInterval(recursionInterval);
+        }
+        
+        function resetSystem() {
+            stopCollisions();
+            // Clear all collision and emergence elements
+            document.querySelectorAll('.collision, .emergence, .recursion-arrow').forEach(el => {
+                if (el.parentNode) {
+                    el.parentNode.removeChild(el);
+                }
+            });
+        }
+        
+        // Layer click interactions
+        layers.forEach(layer => {
+            layer.addEventListener('click', () => {
+                createCollision(layer);
+                
+                // Flash effect
+                layer.style.boxShadow = `0 0 50px ${layer.style.borderColor}`;
+                setTimeout(() => {
+                    layer.style.boxShadow = '';
+                }, 500);
+            });
+        });
+        
+        // Auto-start with gentle collisions
+        setTimeout(startCollisions, 2000);
+        
+        // Add hover descriptions
+        const descriptions = {
+            physics: "First Principles: Photons, electrons, bonds collide to form molecules. Error = entropy.",
+            biology: "Energy Flows: Gradients leak, ATP synthesis is imperfect. Error = inefficiency.",
+            sociology: "Ontological Metamorphoses: Class struggle, cultural collisions. Error = conflict.",
+            metaphysics: "Neural Integration: Faith, despair, ideology synthesize meaning. Error = existential gap.",
+            computation: "Recursive Storage: Survival functions encode memory. Error = loss function."
+        };
+        
+        layers.forEach(layer => {
+            const layerType = layer.dataset.layer;
+            layer.title = descriptions[layerType];
+        });
+    </script>
+</body>
+</html>
